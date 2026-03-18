@@ -1,5 +1,5 @@
-#Para este código, crearemos un carpeta llamada src y dentro de ella un código llamado funciones
-from machine import ADC
+#Para este código, crearemos un carpeta llamada src y dentro de ella un código llamado funciones, pero utilizamos la funcion main que nos permite ser mas ordenado
+
 from time import sleep
 from src.funciones import c_to_f
 from src.funciones import c_to_k

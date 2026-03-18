@@ -1,8 +1,16 @@
+#Se realizar la lectura de la temperatura en tiempo real y el cambio en tiempo real
 from machine import ADC
 from time import sleep
-from src.funciones import c_to_f, c_to_k
 import sys
 import select
+
+
+def c_to_f(temp_c):
+    farenheit=(9/5)*temp_c + 32
+    return farenheit
+
+#Implementa la función de c_to_k
+
 
 
 def main():

@@ -1,3 +1,4 @@
+#Envio de datos mediante la terminal
 print("Ingrese Nombre: ")
 nombre=input().strip().lower() #strip(), permite quitar espacios en blanco al inicio y final, lower(), permite colocar todo en minuscula
 print("Ingrese Edad: ")

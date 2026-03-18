@@ -1,3 +1,4 @@
+#Lectura del sensor de temperatura interno del Rpi Pico
 from machine import ADC
 from time import sleep
 sensor_temp=ADC(4)
