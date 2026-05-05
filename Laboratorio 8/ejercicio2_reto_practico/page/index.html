@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Actuadores - EIE 390</title>
+    
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin-top: 50px; 
+            background-color: #f4f4f9;
+        }
+        .contenedor {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+            margin: 15px; /* Margen para separar las dos cajas */
+        }
+        .btn { 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            margin: 10px; 
+            cursor: pointer; 
+            border-radius: 8px; 
+            border: none; 
+            color: white; 
+            font-weight: bold; 
+        }
+        /* Colores LED 1 */
+        .btn-on-1 { background-color: #28a745; } /* Verde */
+        .btn-off-1 { background-color: #dc3545; } /* Rojo */
+        
+        /* Colores LED 2 (Nuevos para el reto) */
+        .btn-on-2 { background-color: #007bff; } /* Azul */
+        .btn-off-2 { background-color: #ffc107; color: #333; } /* Amarillo */
+        
+        .btn:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <h1>Laboratorio: Control desde la Web</h1>
+    
+    <!-- CÓDIGO BASE: LED 1 -->
+    <div class="contenedor">
+        <h3>Actuador 1: Diodo LED (GP15)</h3>
+        <!-- Apunta a la ruta original /led/ -->
+        <button class="btn btn-on-1" onclick="fetch('/led/1')">Encender LED 1</button>
+        <button class="btn btn-off-1" onclick="fetch('/led/0')">Apagar LED 1</button>
+    </div>
+
+    <br> <!-- Salto de línea para organizar visualmente -->
+
+    <!-- RETO PRÁCTICO: LED 2 -->
+    <div class="contenedor">
+        <h3>Actuador 2: Diodo LED (GP14)</h3>
+        <!-- Apunta a la NUEVA ruta /led2/ creada en FastAPI -->
+        <button class="btn btn-on-2" onclick="fetch('/led2/1')">Encender LED 2</button>
+        <button class="btn btn-off-2" onclick="fetch('/led2/0')">Apagar LED 2</button>
+    </div>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 from machine import Pin, time_pulse_us
-from servo import Servo  # Importamos la librería servo que creamos en el ejercicio anterior
+from servo import Servo  # Importamos la librería servo que creamos en el laboratorio anterior
 import time
 
 # Configuración del Ultrasónico

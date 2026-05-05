@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard EIE 390</title>
+    
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f9; }
+        .contenedor { background-color: white; padding: 20px 30px; border-radius: 10px; display: inline-block; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); margin: 15px; }
+        
+        /* Estilos para la caja del sensor */
+        .caja-sensor { border: 3px solid #17a2b8; background-color: #e0f7fa; width: 300px; }
+        #valor_potenciometro { font-size: 48px; color: #0275d8; display: block; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <h1>Panel de Control IoT - EIE 390</h1>
+
+    <!-- ACTIVIDAD 3: Visor del Sensor -->
+    <div class="contenedor caja-sensor">
+        <h3>Lectura del Sensor (ADC)</h3>
+        <!-- En este 'span' inyectaremos el dato numérico -->
+        <span id="valor_potenciometro">---</span>
+    </div>
+
+    <!-- SCRIPT PARA CONSULTA PERIÓDICA (POLLING) -->
+    <script>
+        // setInterval ejecuta el código interno cada cierto tiempo (en milisegundos)
+        // 500 ms = medio segundo
+        setInterval(async () => {
+            try {
+                // 1. Hacemos la petición GET al endpoint /sensor de nuestro Python
+                const respuesta = await fetch('/sensor');
+                
+                // 2. Convertimos la respuesta a formato JSON
+                const datos = await respuesta.json();
+                
+                // 3. Validamos que el valor no esté vacío o sea inválido
+                if (datos.valor && datos.valor !== "") {
+                    // 4. Actualizamos el número en la pantalla HTML
+                    document.getElementById('valor_potenciometro').innerText = datos.valor;
+                }
+            } catch (error) {
+                console.log("Esperando conexión con el sensor...");
+            }
+        }, 500);
+    </script>
+
+</body>
+</html>
